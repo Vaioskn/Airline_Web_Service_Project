@@ -153,6 +153,11 @@ def register():
 ```
 **Παραδείγματα:**
 
+![1](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/16463cc6-c6f1-4b29-8e0f-90ca05b3ef63)
+
+![2](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/e717f902-5467-4f59-848b-279fb2c75656)
+
+
 ## /login
 ```python
 @app.route('/login', methods=['POST'])
@@ -206,7 +211,13 @@ def login():
 ```
 **Παραδείγματα:**
 
+![1](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/19388a52-2878-4741-8fb8-806d3ac13240)
 
+![2](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/38c89b21-f6ab-4c70-aa62-91d90caaf89b)
+
+![3](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/1be05d7a-e886-4cf5-9bca-f0b6844f8e2c)
+
+![4](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/1baec856-b211-4091-9536-880d3b886f71)
 
 
 ## /logout
@@ -242,6 +253,7 @@ def logout():
 
 **Παραδείγματα:**
 
+![3](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/7c1f74a1-163e-4adc-807d-d62ae7d3d81b)
 
 
 ## /search_flights
@@ -298,6 +310,16 @@ def search_flights():
 ```
 **Παραδείγματα:**
 
+![4](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/9080b2b2-b826-4808-8406-4eede3413731)
+
+![5](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/cd9ca724-125f-4d8b-aba4-e953747da1af)
+
+![6](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/c8762e8c-9ded-4757-bfbd-db0517bcb463)
+
+![7](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/4a798a45-6729-425e-8430-a429473c155a)
+
+![8](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/6235799f-4344-44b8-822c-57121b143415)
+
 
 ## /display_flight_details/<_id>
 ```python
@@ -331,6 +353,10 @@ def display_flight_details(_id):
 
 
 **Παραδείγματα:**
+
+![9](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/755621b8-19f9-4b7d-9554-27b1453ecb8e)
+
+![10](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/351891e2-e27c-4a60-953f-5612ad688545)
 
 
 ## /book_ticket/<_id>
@@ -433,6 +459,14 @@ def book_ticket(_id):
 ```
 **Παραδείγματα:**
 
+![11](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/c8567ed3-90cd-45a6-9c75-9c79c21b1142)
+
+![12](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/ae9fe115-8ce7-483d-ab6b-82a59b8343e8)
+
+![13](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/d0abfac3-92fa-47ab-9b15-57d5ad3d21af)
+
+![14](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/494f35f3-1bc5-4189-be0b-811fadf7aa23)
+
 
 ## /bookings
 ```python
@@ -487,6 +521,8 @@ def show_bookings():
 
 
 **Παραδείγματα:**
+
+![15](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/615ab49a-112b-4ed0-b2a9-6d61be9685b6)
 
 
 ## /show_booking_details/<booking_code>
@@ -546,6 +582,10 @@ def show_booking_details(booking_code):
 
 **Παραδείγματα:**
 
+![16](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/ed320482-c814-446d-95fa-7c9ee4fe7299)
+
+![17](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/a6dad0e8-3dc9-4e62-a64c-2b05eefd7fc0)
+
 
 ## /cancel_flight/<booking_code>
 ```python
@@ -592,6 +632,10 @@ def cancel_flight(booking_code):
 
 **Παραδείγματα:**
 
+![18](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/2733d57f-9465-45e3-ade9-bc842d29a467)
+
+![19](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/50c4fd62-1e0b-4484-b2e3-ac28fdcec54a)
+
 
 ## /delete_account
 ```python
@@ -620,6 +664,10 @@ def delete_account():
 
 
 **Παραδείγματα:**
+
+![20](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/63d36da5-a2ef-4701-a31e-d9f33150b7d9)
+
+![21](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/47874057-71bb-410b-95f4-4745e230d66a)
 
 
 ## /admin/login
@@ -677,7 +725,17 @@ def admin_login():
 ```
 **Παραδείγματα:**
 
+![1](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/014abe2a-4fc9-4d0d-8f43-0f0048080d64)
 
+![2](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/3d6c0f92-5e1e-47c0-bbb3-baabb5234058)
+
+![4](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/34107cf6-75aa-444b-9817-a07c0af9f96e)
+
+![admin4](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/71264208-8672-46d7-8c83-6b9e865fe8b1)
+
+![admin5](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/f56f98c7-de58-4e90-a34a-b377192da388)
+
+![new1](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/07587123-8acf-410b-b1bb-de33d6d31617)
 
 
 ## /admin/logout
@@ -712,6 +770,12 @@ def admin_logout():
 
 
 **Παραδείγματα:**
+
+![3](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/f3443327-4401-4a03-9ddb-4b8c05fe8a01)
+
+![9](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/9c67e910-b74e-4551-9ae6-3c2249e8ef48)
+
+![10](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/2e6a481a-498a-40b6-b440-d036c48a2d77)
 
 
 ## /admin/create_flight
@@ -796,6 +860,14 @@ def create_flight():
 ```
 **Παραδείγματα:**
 
+![2](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/805403c1-01b0-478f-8a1b-dd49a142c53f)
+
+![3](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/b8696198-6c4d-4b7c-b1f4-a1cc0a056a59)
+
+![5](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/6bb97fab-3979-4e19-9e66-0702515d925b)
+
+![6](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/a850b886-5c79-4893-b82d-4e4f2537e22f)
+
 
 ## /admin/renew_ticket_prices/<_id>
 ```python
@@ -863,6 +935,12 @@ def renew_ticket_prices(_id):
 ```
 **Παραδείγματα:**
 
+![7](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/e2c08cb9-2c80-4a60-bb48-8c912f94d901)
+
+![8](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/e3769999-f080-4a81-99e6-3cb50defd8be)
+
+![new8](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/d40b5fac-e815-412d-8b7a-da7e85d5e696)
+
 
 ## /admin/delete_flight/<_id>
 ```python
@@ -909,6 +987,16 @@ def delete_flight(_id):
 
 
 **Παραδείγματα:**
+
+![12](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/25dcdf36-0d1d-4443-a9b2-faea701133e7)
+
+![13](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/ec1b7d46-b47a-43f8-ba1b-e94993448a26)
+
+![admin1](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/630b22f4-a3cf-4599-847e-cb9faf5faab1)
+
+![admin2](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/2cbd68f7-315e-489a-a513-b2be185608ac)
+
+![admin3](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/3688e5fc-ecc6-42ba-8094-2604b4454a8b)
 
 
 ## /admin/search_flights
@@ -971,6 +1059,16 @@ def admin_search_flights():
 }
 ```
 **Παραδείγματα:**
+
+![4](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/ef162a82-ea86-4532-8285-eba04d91f5f5)
+
+![5](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/56345566-71c7-4184-b9c0-5c2285745597)
+
+![6](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/88df7cb1-01da-49fc-a35c-dc6aed419e5b)
+
+![7](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/9030178b-04cf-4c3c-993d-b5a5ea97b7aa)
+
+![9](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/3b24a2ae-5328-4ed8-8360-f6b663267c4e)
 
 
 ## /admin/flight_details/<_id>
@@ -1039,6 +1137,10 @@ def flight_details(_id):
 
 
 **Παραδείγματα:**
+
+![10](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/f3957484-34e7-4811-92d0-cd5ec2be9573)
+
+![11](https://github.com/Vaioskn/YpoxreotikiErgasia23_E20081_KONSTANTOPOULOS_VAIOS/assets/77112171/67b1aa0a-36f6-4943-91ca-d5b65f4b5e57)
 
 
 ## Dockerfile
