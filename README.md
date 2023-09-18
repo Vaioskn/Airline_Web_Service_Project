@@ -3,6 +3,98 @@
 
 A brief description of how this service works
 
+# DESCRIPTION OF PROJECT
+In this service there are two categories of users: (i) administrators, and (ii) ordinary users. Before performing the functions described below, ordinary users of the service must register in the system. The registration allows the introduction of new users in the system who will be classified in the "Simple User" category. The administrator is a user who already exists in the system.
+To register a simple user in the system, the following information is required:
+● Username
+● Username
+● Email
+● Login code
+● Date of birth
+● Country of origin
+● Passport Number
+Note: A new user can register in the system if and only if there is no other user with the same email, and the username is not used by another user. A simple user can perform the following functions:
+
+● Login to the system: The user enters his email and password and if the information is valid, he is successfully logged into the service. Otherwise, an appropriate message appears prompting the user to enter his data again. Only if a user has successfully logged in can he perform the following functions! Also, an ordinary user can only access the pages that concern ordinary users and NOT those that concern administrators of the service. If a user attempts to enter a page they do not have access to, an appropriate message is being displayed (including the relevant HTTP response code).
+
+● Logout from the system: After the user exits, he does not have access to the functions described below.
+
+● Search flights: A user can search the flights available in the system. The search can be made based on the following information:
+○ Airport of origin and airport of final destination, or
+○ Airport of origin, airport of final destination and date of operation, or
+○ By date, or
+○ Show all available flights
+A list of available flights, their unique codes (_id), date of departure, origin airport and final destination airport is displayed.
+
+● Show flight details (based on a unique code): For the flight, the date of departure, the airport of origin and the airport of final destination, the available tickets (economy and business), as well as the cost of the tickets for each of the two categories (economy and business) are being displayed.
+
+● Book a ticket (using the unique code of the flight): The user provides the information described below and books a ticket for this flight:
+○ Name
+○ Surname
+○ Passport number
+○ Date of Birth
+○ Email
+○ If the ticket is for business or economy class
+
+● Show bookings: The bookings made by the specific user are being displayed.
+
+● Display reservation details (based on unique reservation code): The details provided by the user for booking the ticket are being displayed, namely:
+○ Airport of origin
+○ Airport of final destination
+○ Date of the flight
+○ First and last name of person for whom the reservation has been made
+○ Passport number of person for whom the reservation has been made
+○ Date of birth of person booked
+○ Email of person for whom the reservation has been made
+○ If the ticket is for business or economy class
+
+● Cancellation of reservation (based on unique reservation code): The reservation is canceled and now the number of available tickets for the specific flight is renewed.
+
+● Deletion of his account from the service: After deleting his account, the user can no longer access the service and his information. Reservations made by this user are not affected.
+
+An administrator can perform the following functions:
+● Login to the system: The administrator enters his email, and his password and if the information is valid, he is successfully logged into the service. Otherwise, an appropriate message is being displayed prompting the administrator to enter the information again. Only if an administrator has successfully logged into the system can he perform the following functions!
+
+● Logout: Once logged out, the administrator does not have access to the functions described below.
+
+● Create a flight: The administrator can create a new flight by providing the following information:
+○ Airport of origin
+○ Airport of final destination
+○ Date of flight
+○ Tickets available and costs
+■ For business class
+■ For economy class
+
+● Update flight ticket prices: The administrator can change the cost of tickets for the two categories (economy and business).
+
+● Flight deletion (based on unique flight code): The administrator can delete a flight only if there are no reservations for that flight.
+
+● Search flights: An administrator can search the flights available in the system. The search can be made based on the following information:
+○ Airport of origin and airport of final destination, or
+○ Airport of origin, airport of final destination and date of operation, or
+○ By date, or
+○ Show all available flights
+A list of available flights, their unique codes (_id), date of departure, origin and final destination is displayed.
+
+● Display flight details (based on unique flight code): The following details for the specific flight are displayed:
+○ Airport of origin
+○ Airport of final destination
+○ Total number of tickets
+○ Total number of tickets per class (economy and business)
+○ Ticket cost per category
+○ Tickets available
+○ Available tickets per class (economy and business)
+○ For each reservation made on this flight, the first and last name of the person for whom the reservation has been made and the class of the seat reserved.
+
+
+The web service has been implemented using Python and the Microframework Flask, which provides the necessary endpoints to its users, so that they can perform the aforementioned functions. The web service that has been implemented is connected to a MongoDB container. Inside, exists the DigitalAirlines database, which stores the related collections, the users, the available flights and the reservations made. The web service has been containerized, while the exact steps to be followed by Docker are described in the Dockerfile to create the image. The docker-compose.yml file has also been created. It connects the two containers (ie the web service and MongoDB) to run together. The database container has a volume in a folder on the host called "data", so that in the event that the container is deleted, data loss is avoided.
+
+Also, the following have been created:
+1. System data flow diagram
+2. Table of risks for the implementation of the system
+3. Proposed Gantt Chart for Information System Implementation Management
+
+
 
 ## Database/Flask-Application Initialization
 ```python
