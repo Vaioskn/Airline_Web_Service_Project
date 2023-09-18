@@ -145,17 +145,17 @@ else:
 
 users.delete_one({"User_code": "THIS_IS_TEMP_CODE"})
 ```
-**1. Εισάγει τα απαραίτητα μοντέλα από τα πακέτα flask και pymongo.  
-2. Συνδέεται με τη βάση δεδομένων MongoDB στη θύρα 27017.  
-3. Λαμβάνει τη βάση δεδομένων "DigitalAirlines" από την παρουσία MongoDB.  
-4. Λαμβάνει τις συλλογές από τη βάση δεδομένων "DigitalAirlines".  
-5. Δημιουργεί μια λίστα με τα email των διαχειριστών, οι οποίοι απαγορεύονται για την κανονική εγγραφή χρηστών.  
-6. Εκκινεί μια εφαρμογή Flask και ορίζει ένα μυστικό κλειδί για τις συνεδρίες.  
-7. Προσωρινά προσθέτει έναν χρήστη για να δημιουργήσει τη συλλογή "users". Αν η συλλογή δεν υπάρχει, αυτό θα οδηγήσει σε σφάλμα και κατάρρευση, επομένως πρώτα δημιουργεί τη συλλογή.  
-8. Δημιουργεί τον διαχειριστή του συστήματος.  
-9. Αν ο διαχειριστής υπάρχει ήδη, εμφανίζει ένα μήνυμα.  
-10. Αν ο διαχειριστής δεν υπάρχει, τότε τον προσθέτει στη βάση δεδομένων.  
-11. Διαγράφει τον προσωρινό χρήστη, επειδή δεν θέλουμε περιττά στοιχεία στη συλλογή "users".**
+**1. Imports the necessary models from the flask and pymongo packages.
+2. Connects to MongoDB database on port 27017.
+3. Gets the "DigitalAirlines" database from the MongoDB instance.
+4. Gets the collections from the "DigitalAirlines" database.
+5. Creates a list of admin emails, which are banned for normal user registration.
+6. Starts a Flask application and sets a session secret.
+7. Temporarily adds a user to create the "users" collection. If the collection does not exist, this will result in an error and crash, so it creates the collection first.
+8. Creates the system administrator.
+9. If the administrator already exists, it displays a message.
+10. If the administrator does not exist, then it adds it to the database.
+11. Deletes the temporary user, because we don't want unnecessary items in the "users" collection.**
 
 ## Endpoints Creation
 ## /register
@@ -213,16 +213,16 @@ def register():
     print(success_message)
     return jsonify({"Success": "User registered successfully."}), 201
 ```
-**1. Στην αρχή, στο τερματικό σημείο '/register', λαμβάνει μια αίτηση HTTP POST με τα δεδομένα του νέου χρήστη σε μορφή JSON.  
-2. Προσπαθεί να αναλύσει τα δεδομένα αυτά και εάν συναντήσει κάποιο σφάλμα, επιστρέφει ένα μήνυμα λάθους.  
-3. Ανακτά τα στοιχεία του χρήστη από τα δεδομένα της αίτησης και, εάν λείπει κάποιο στοιχείο, επιστρέφει ένα μήνυμα λάθους.  
-4. Ελέγχει αν το email του χρήστη υπάρχει στη λίστα των email των διαχειριστών και, αν ναι, επιστρέφει μήνυμα λάθους.  
-5. Έπειτα, ελέγχει αν το email ή το όνομα χρήστη υπάρχει ήδη στη βάση δεδομένων και, αν ναι, επιστρέφει μήνυμα λάθους.  
-6. Υπολογίζει έναν μοναδικό κωδικό χρήστη, δημιουργεί ένα λεξικό για τον νέο χρήστη και τον εισάγει στη βάση δεδομένων.  
-7. Εάν όλα πάνε καλά, επιστρέφει ένα μήνυμα επιτυχίας.**
+**1. At first, on the '/register' endpoint, it receives an HTTP POST request with the new user's data in JSON format.
+2. It tries to parse this data and if it encounters an error, it returns an error message.
+3. Retrieves the user's information from the request data and, if any information is missing, returns an error message.
+4. Checks if the user's email exists in the list of administrators' emails and returns an error message if so.
+5. It then checks if the email or username already exists in the database and returns an error message if so.
+6. Computes a unique user code, creates a dictionary for the new user, and inserts it into the database.
+7. If everything goes well, it returns a success message.**
 
 
-**Σωστή σύνταξη json input:**
+**Correct json input syntax:**
 ```json
 {
     "user_name": " ",
@@ -273,14 +273,14 @@ def login():
             print(f"Error: {email} does not exist. Please register first!")
             return jsonify({"Error": f"{email} does not exist. Please register first!"}), 404
 ```
-**1. Ελέγχει αν υπάρχει ήδη συνδεδεμένος χρήστης. Αν ναι, επιστρέφει μήνυμα λάθους.  
-2. Αν όχι, προσπαθεί να αναλύσει τα δεδομένα της αίτησης HTTP POST που περιέχουν το email και τον κωδικό σύνδεσης του χρήστη.  
-3. Εάν ο χρήστης υπάρχει στη βάση δεδομένων και ο κωδικός είναι σωστός, δημιουργεί νέα σύνοδο για τον χρήστη και επιστρέφει μήνυμα επιτυχίας.  
-4. Αν ο κωδικός είναι λάθος αλλά το email υπάρχει, επιστρέφει μήνυμα λάθους.  
-5. Αν το email δεν υπάρχει, επιστρέφει ένα άλλο μήνυμα λάθους.**
+**1. Checks if there is already a logged in user. If so, it returns an error message.
+2. If not, it tries to parse the HTTP POST request data containing the user's email and login code.
+3. If the user exists in the database and the password is correct, it creates a new session for the user and returns a success message.
+4. If the password is wrong but the email exists, it returns an error message.
+5. If the email does not exist, it returns another error message.**
 
 
-**Σωστή σύνταξη json input:**
+**Correct json input syntax:**
 ```json
 {
     "email": " ",
@@ -313,11 +313,11 @@ def logout():
         print(f"Error: The user does not exist in the database.")
         return jsonify({"Error": "The user does not exist in the database."}), 404
 ```
-**1. Ελέγχει αν υπάρχει συνδεδεμένος χρήστης. Αν όχι, επιστρέφει μήνυμα λάθους.  
-2. Αν ναι, ανακτά τον κωδικό του χρήστη από τη σύνοδο και ελέγχει αν ο χρήστης είναι διαχειριστής.  
-3. Αν ναι, επιστρέφει μήνυμα λάθους.  
-4. Αν όχι, αφαιρεί τον κωδικό του χρήστη από τη σύνοδο, αποσυνδέοντας έτσι τον χρήστη.  
-5. Αν τα στοιχεία του χρήστη υπήρχαν στη βάση δεδομένων, επιστρέφει μήνυμα επιτυχίας. Αν όχι, επιστρέφει μήνυμα λάθους.**
+**1. Checks if there is a logged in user. If not, it returns an error message.
+2. If so, retrieves the user's password from the session and checks if the user is an administrator.
+3. If so, it returns an error message.
+4. If not, it removes the user's password from the session, thus logging the user out.
+5. If the user's details existed in the database, it returns a success message. If not, it returns an error message.**
 
 
 
@@ -350,14 +350,14 @@ def search_flights():
     results = flights.find(search_criteria)
     return jsonify([flight for flight in results]), 200
 ```
-**1. Ελέγχει αν ένας διαχειριστής είναι συνδεδεμένος. Αν όχι, επιστρέφει μήνυμα λάθους.  
-2. Αν ναι, προσπαθεί να αναλύσει τα δεδομένα της αίτησης ως JSON.  
-3. Εάν δεν υπάρχουν δεδομένα αίτησης, επιστρέφει όλες τις πτήσεις στη συλλογή "Flights" της MongoDB.  
-4. Αν υπάρχουν δεδομένα αίτησης, ανακτά τα κριτήρια αναζήτησης από τα δεδομένα και δημιουργεί μια ερώτηση αναζήτησης.  
-5. Χρησιμοποιεί την ερώτηση αναζήτησης για να βρει τις αντίστοιχες πτήσεις στη συλλογή "Flights" της MongoDB και επιστρέφει αυτές τις πτήσεις ως έναν πίνακα JSON.**
+**1. Checks if an administrator is logged on. If not, it returns an error message.
+2. If so, it tries to parse the request data as JSON.
+3. If there is no request data, it returns all flights in MongoDB's "Flights" collection.
+4. If request data exists, retrieves the search criteria from the data and creates a search query.
+5. Uses the search query to find matching flights in MongoDB's "Flights" collection and returns those flights as a JSON array.**
 
 
-**Σωστή σύνταξη json input (προαιρετική):**
+**Correct json input syntax (optional):**
 ```json
 {
     "airport_of_origin": " "
@@ -400,10 +400,10 @@ def display_flight_details(_id):
 
     return jsonify(flight_details), 200
 ```
-**1. Ελέγχει αν ένας χρήστης είναι συνδεδεμένος. Αν όχι, επιστρέφει μήνυμα λάθους.  
-2. Αν ναι, παίρνει τις λεπτομέρειες της πτήσης από τη συλλογή "Flights" της MongoDB χρησιμοποιώντας το δοθέν ID της πτήσης.  
-3. Αν δεν βρέθηκε πτήση με το δοθέν ID, επιστρέφει μήνυμα λάθους.  
-4. Δημιουργεί ένα αντικείμενο JSON που αναπαριστά τις λεπτομέρειες της πτήσης και το επιστρέφει.**
+**1. Checks if a user is logged in. If not, it returns an error message.
+2. If so, it gets the flight details from the MongoDB "Flights" collection using the given flight ID.
+3. If no flight is found with the given ID, it returns an error message.
+4. Creates a JSON object representing the flight details and returns it.**
 
 
 
@@ -482,19 +482,19 @@ def book_ticket(_id):
     print(success_message)
     return jsonify({"Success": "Ticket booked successfully!"}), 201
 ```
-**1. Ελέγχει αν ένας χρήστης είναι συνδεδεμένος. Αν όχι, επιστρέφει μήνυμα λάθους.  
-2. Αν ναι, παίρνει τις λεπτομέρειες του χρήστη από τη συλλογή "Users" της MongoDB.  
-3. Προσπαθεί να αναλύσει τα δεδομένα της αίτησης ως JSON. Αν αυτά δεν είναι JSON, επιστρέφει μήνυμα λάθους.  
-4. Ανακτά τις λεπτομέρειες της κράτησης από τα δεδομένα της αίτησης. Αν λείπει κάποια λεπτομέρεια, επιστρέφει μήνυμα λάθους.  
-5. Επαληθεύει ότι οι λεπτομέρειες της κράτησης ταιριάζουν με τις λεπτομέρειες του χρήστη. Αν όχι, επιστρέφει μήνυμα λάθους.  
-6. Παίρνει τις λεπτομέρειες της πτήσης από τη συλλογή "Flights" της MongoDB χρησιμοποιώντας το δοθέν ID της πτήσης.  
-7. Ελέγχει αν υπάρχουν διαθέσιμα εισιτήρια για την κατηγορία που επέλεξε ο χρήστης (business ή economy). Αν υπάρχουν, μειώνει τον αριθμό των διαθέσιμων εισιτηρίων κατά 1. Αν δεν υπάρχουν διαθέσιμα εισιτήρια, επιστρέφει μήνυμα λάθους.  
-8. Δημιουργεί ένα μοναδικό κωδικό κράτησης και ένα νέο αντικείμενο JSON για την κράτηση.  
-9. Εισάγει τη νέα κράτηση στη συλλογή "Bookings" της MongoDB.  
-10. Επιστρέφει ένα μήνυμα επιτυχίας.**
+**1. Checks if a user is logged in. If not, it returns an error message.
+2. If so, it gets the user details from MongoDB's "Users" collection.
+3. It tries to parse the request data as JSON. If these are not JSON, it returns an error message.
+4. Retrieves the booking details from the application data. If any detail is missing, it returns an error message.
+5. Verifies that the booking details match the user details. If not, it returns an error message.
+6. Gets the flight details from the MongoDB "Flights" collection using the given flight ID.
+7. Checks if there are tickets available for the category chosen by the user (business or economy). If there are, it decrements the number of available tickets by 1. If there are no tickets available, it returns an error message.
+8. Creates a unique reservation code and a new JSON object for the reservation.
+9. Inserts the new booking into MongoDB's "Bookings" collection.
+10. Returns a success message.**
 
 
-**Σωστή σύνταξη json input:**
+**Correct json input syntax:**
 ```json
 {
     "user_name": " ",
@@ -548,15 +548,15 @@ def show_bookings():
 
     return jsonify({"Bookings": bookings_data}), 200
 ```
-**1. Ελέγχει αν ένας χρήστης είναι συνδεδεμένος. Αν όχι, επιστρέφει μήνυμα λάθους.  
-2. Αν ναι, παίρνει τον κωδικό του χρήστη από τη μεταβλητή session.  
-3. Εκτελεί μια λειτουργία εύρεσης στη συλλογή "bookings" της MongoDB για να πάρει όλες τις κρατήσεις όπου ο 'user_code' ταιριάζει με τον κωδικό του συνδεδεμένου χρήστη.  
-4. Αν δεν βρέθηκαν κρατήσεις για τον χρήστη, επιστρέφει ένα μήνυμα JSON που υποδηλώνει ότι δεν βρέθηκαν κρατήσεις.  
-5. Αν βρέθηκαν κρατήσεις, αρχικοποιείται μια κενή λίστα για να περιέχει τα δεδομένα των κρατήσεων.  
-6. Παίρνει τα στοιχεία κάθε κράτησης και τα στοιχεία της πτήσης από τη συλλογή 'flights' χρησιμοποιώντας το ID της πτήσης από την κράτηση.  
-7. Συνδυάζει τα δεδομένα της κράτησης και τα δεδομένα της πτήσης σε ένα ενιαίο λεξικό.  
-8. Προσθέτει το ενιαίο λεξικό κρατήσεων και δεδομένων πτήσεων στη λίστα δεδομένων κρατήσεων.  
-9. Επιστρέφει τη λίστα δεδομένων κρατήσεων στον πελάτη σε μορφή JSON.**
+**1. Checks if a user is logged in. If not, it returns an error message.
+2. If so, it gets the user's password from the session variable.
+3. Performs a find operation on MongoDB's "bookings" collection to get all bookings where 'user_code' matches the logged in user's code.
+4. If no reservations were found for the user, it returns a JSON message indicating that no reservations were found.
+5. If reservations are found, an empty list is initialized to contain the reservation data.
+6. Gets each booking's details and flight details from the 'flights' collection using the flight ID from the booking.
+7. Combines reservation data and flight data into a single dictionary.
+8. Adds the single reservation and flight data dictionary to the reservation data list.
+9. Returns the list of booking data to the client in JSON format.**
 
 
 
@@ -605,13 +605,13 @@ def show_booking_details(booking_code):
     }
     return jsonify({"Booking": data}), 200
 ```
-**1. Ελέγχει αν ένας χρήστης είναι συνδεδεμένος. Αν όχι, επιστρέφει μήνυμα λάθους.  
-2. Αν ναι, παίρνει τον κωδικό του χρήστη από τη μεταβλητή session.  
-3. Εκτελεί μια λειτουργία εύρεσης στη συλλογή "bookings" της MongoDB για να βρει την κράτηση με τον κωδικό που δόθηκε.  
-4. Αν η κράτηση δεν βρεθεί, επιστρέφει μήνυμα λάθους.  
-5. Αν βρεθεί η κράτηση, ελέγχει αν ανήκει στον συνδεδεμένο χρήστη. Αν όχι, επιστρέφει μήνυμα λάθους.  
-6. Αν η κράτηση ανήκει στον χρήστη, βρίσκει τα στοιχεία της πτήσης από τη συλλογή 'flights' και τα ενώνει με τα στοιχεία της κράτησης σε ένα λεξικό.  
-7. Τέλος, επιστρέφει το λεξικό στον χρήστη σε μορφή JSON.**
+**1. Checks if a user is logged in. If not, it returns an error message.
+2. If so, it gets the user's password from the session variable.
+3. Performs a find operation on MongoDB's "bookings" collection to find the booking with the given code.
+4. If the reservation is not found, it returns an error message.
+5. If the reservation is found, it checks if it belongs to the logged in user. If not, it returns an error message.
+6. If the reservation belongs to the user, it finds the flight details from the 'flights' collection and joins them with the reservation details in a dictionary.
+7. Finally, it returns the dictionary to the user in JSON format.**
 
 
 
@@ -652,10 +652,10 @@ def cancel_flight(booking_code):
 
     return jsonify({"Success": "Booking cancelled successfully."}), 202
 ```
-**1. Ακολουθεί παρόμοια διαδικασία με το τερματικό σημείο '/show_booking_details/<booking_code>'.  
-2. Αν βρεθεί η κράτηση και ανήκει στον χρήστη, αυξάνει τον αριθμό των διαθέσιμων θέσεων της πτήσης ανάλογα με την κατηγορία των εισιτηρίων της κράτησης (οικονομική ή επιχειρηματική).  
-3. Στη συνέχεια, διαγράφει την κράτηση από τη συλλογή 'bookings'.  
-4. Τέλος, επιστρέφει μήνυμα επιτυχίας στον χρήστη.**
+**1. It follows a similar process to the '/show_booking_details/<booking_code>' endpoint.
+2. If the reservation is found and belongs to the user, it increases the number of available seats on the flight according to the ticket category of the reservation (economy or business).
+3. It then deletes the booking from the 'bookings' collection.
+4. Finally, it returns a success message to the user.**
 
 
 
@@ -679,10 +679,10 @@ def delete_account():
 
     return jsonify({"Success": "Account deleted successfully."}), 204
 ```
-**1. Ελέγχει αν ένας χρήστης είναι συνδεδεμένος. Αν όχι, επιστρέφει μήνυμα λάθους.  
-2. Αν ναι, βρίσκει τον χρήστη στη συλλογή 'users' και τον διαγράφει.  
-3. Αφαιρεί τον κωδικό του χρήστη από τη μεταβλητή session, αποσυνδέοντας τον χρήστη.  
-4. Τέλος, επιστρέφει μήνυμα επιτυχίας στον χρήστη.**
+**1. Checks if a user is logged in. If not, it returns an error message.
+2. If so, it finds the user in the 'users' collection and deletes it.
+3. Removes the user's password from the session variable, logging the user out.
+4. Finally, it returns a success message to the user.**
 
 
 
@@ -723,16 +723,16 @@ def admin_login():
             print(f"Error: {email} does not exist. Wrong Admin Credentials!")
             return jsonify({"Error": f"{email} does not exist. Wrong Admin Credentials!"}), 404
 ```
-**1. Ελέγχει αν υπάρχει ήδη χρήστης συνδεδεμένος στη συνεδρία. Αν ναι, εμφανίζει ένα μήνυμα λάθους και επιστρέφει ένα σφάλμα 403.  
-2. Προσπαθεί να αναλύσει τα δεδομένα της αίτησης ως JSON. Αν αποτύχει, εμφανίζει ένα μήνυμα λάθους και επιστρέφει ένα σφάλμα 400.  
-3. Εξάγει το email και τον κωδικό εισόδου από τα δεδομένα της αίτησης. Αν λείπει κάποιο από αυτά, επιστρέφει ένα μήνυμα λάθους και ένα σφάλμα 400.  
-4. Ελέγχει αν το email δεν ανήκει στον διαχειριστή. Αν ναι, εμφανίζει ένα μήνυμα λάθους και επιστρέφει ένα σφάλμα 403.  
-5. Ελέγχει αν ο χρήστης υπάρχει με το δοσμένο email και τον κωδικό εισόδου. Αν ναι, συνδέει τον χρήστη και δημιουργεί μια νέα συνεδρία.  
-6. Εάν ο κωδικός εισόδου είναι λανθασμένος αλλά το email υπάρχει στη βάση δεδομένων, επιστρέφει ένα σφάλμα.  
-7. Αν το email δεν υπάρχει στη βάση δεδομένων, επιστρέφει ένα σφάλμα.**
+**1. Checks if a user is already logged in to the session. If so, it displays an error message and returns a 403 error.
+2. It tries to parse the request data as JSON. If it fails, it displays an error message and returns a 400 error.
+3. Extracts the email and login code from the application data. If any of these are missing, it returns an error message and a 400 error.
+4. Checks if the email does not belong to the administrator. If so, it displays an error message and returns a 403 error.
+5. Checks if the user exists with the given email and password. If so, it connects the user and creates a new session.
+6. If the input code is incorrect but the email exists in the database, it returns an error.
+7. If the email does not exist in the database, it returns an error.**
 
 
-**Σωστή σύνταξη json input:**
+**Correct json input syntax:**
 ```json
 {
     "email": "admin1@example.com",
@@ -762,14 +762,14 @@ def admin_logout():
     print(f"Success! Administrator {user['user_name']} {user['user_surname']} logged-out")
     return jsonify({"Success": f"Administrator {user['user_name']} {user['user_surname']} logged-out"}), 200
 ```
-**1. Η συνάρτηση admin_logout() αντιδρά σε ένα HTTP POST αίτημα στο διαδρομή /admin/logout.  
-2. Αρχικά, ελέγχει αν υπάρχει user_code στην τρέχουσα συνεδρία. Αν δεν υπάρχει, κανένας διαχειριστής δεν είναι συνδεδεμένος, και επιστρέφεται ένα σφάλμα 401.  
-3. Αν υπάρχει user_code, ανακτά τον από τη συνεδρία.  
-4. Στη συνέχεια, αναζητά τον χρήστη από τη συλλογή users με βάση το user_code.  
-5. Ελέγχει αν ο χρήστης είναι διαχειριστής, ελέγχοντας αν το email του χρήστη βρίσκεται στη λίστα admin_emails.  
-6. Αν το email δεν βρίσκεται στη λίστα, ο χρήστης δεν είναι διαχειριστής, και επιστρέφεται ένα σφάλμα 403.  
-7. Αν ο χρήστης είναι διαχειριστής, τότε "αποσυνδέεται", αφαιρώντας το user_code από τη συνεδρία.  
-8. Τέλος, επιστρέφεται ένα μήνυμα επιτυχίας που δηλώνει ότι ο διαχειριστής έχει αποσυνδεθεί επιτυχώς.**
+**1. The admin_logout() function reacts to an HTTP POST request to the path /admin/logout.
+2. First, it checks if user_code exists in the current session. If not, no administrator is logged in, and a 401 error is returned.
+3. If user_code exists, retrieve it from the session.
+4. It then looks up the user from the users collection based on user_code.
+5. Checks if the user is an admin by checking if the user's email is in the admin_emails list.
+6. If the email is not in the list, the user is not an administrator, and a 403 error is returned.
+7. If the user is an administrator, then it is "logged out", removing the user_code from the session.
+8. Finally, a success message is returned indicating that the administrator has successfully logged out.**
 
 
 
@@ -829,19 +829,19 @@ def create_flight():
     print(success_message)
     return jsonify({"Success": "Flight Added Successfully."}), 201
 ```
-**1. Η συνάρτηση create_flight() ανταποκρίνεται σε ένα HTTP POST αίτημα στη διαδρομή /admin/create_flight.  
-2. Ελέγχει αρχικά εάν υπάρχει user_code στη συνεδρία, δηλαδή εάν ένας χρήστης είναι συνδεδεμένος. Εάν δεν υπάρχει user_code, επιστρέφει ένα σφάλμα 401, δηλώνοντας ότι κανένας διαχειριστής δεν είναι επί του παρόντος συνδεδεμένος.  
-3. Εάν υπάρχει user_code, τον ανακτά από τη συνεδρία και αναζητά τον χρήστη στη συλλογή users.  
-4. Ελέγχει εάν ο συνδεδεμένος χρήστης είναι διαχειριστής, δηλαδή αν το email του χρήστη βρίσκεται στη λίστα admin_emails. Αν δεν βρίσκεται, επιστρέφει ένα σφάλμα 403.  
-5. Στη συνέχεια, προσπαθεί να αναλύσει τα δεδομένα του αιτήματος ως JSON. Εάν τα δεδομένα δεν έχουν διαμορφωθεί σωστά, επιστρέφει ένα σφάλμα 400.  
-6. Αν τα δεδομένα του αιτήματος είναι σωστά διαμορφωμένα ως JSON, προσπαθεί να ανακτήσει τα απαραίτητα πεδία. Αν λείπει κάποιο πεδίο, επιστρέφει ένα σφάλμα 400.  
-7. Μετράει τις πτήσεις στη συλλογή flights και χρησιμοποιεί αυτόν τον αριθμό για να δημιουργήσει ένα μοναδικό ID για τη νέα πτήση.  
-8. Δημιουργεί ένα νέο έγγραφο πτήσης χρησιμοποιώντας τα δεδομένα που ανακτήθηκαν από το αίτημα.
-9. Εισάγει τη νέα πτήση στη συλλογή flights.  
-10. Επιστρέφει ένα μήνυμα επιτυχίας που δηλώνει ότι η πτήση έχει δημιουργηθεί επιτυχώς.**
+**1. The create_flight() function responds to an HTTP POST request to the path /admin/create_flight.
+2. It first checks if user_code exists in the session, i.e. if a user is logged in. If user_code does not exist, it returns a 401 error, stating that no administrator is currently logged in.
+3. If user_code exists, retrieves it from the session and looks for the user in the users collection.
+4. Checks if the logged in user is an admin, i.e. if the user's email is in the admin_emails list. If not found, it returns a 403 error.
+5. It then tries to parse the request data as JSON. If the data is not formatted correctly, it returns a 400 error.
+6. If the request data is properly formatted as JSON, it tries to retrieve the necessary fields. If a field is missing, it returns a 400 error.
+7. Counts the flights in the flights collection and uses that number to generate a unique ID for the new flight.
+8. Creates a new flight document using the data retrieved from the request.
+9. Inserts the new flight into the flights collection.
+10. Returns a success message indicating that the flight has been created successfully.**
 
 
-**Σωστή σύνταξη json input:**
+**Correct json input syntax:**
 ```json
 {
   "airport_of_origin": " ",
@@ -903,16 +903,16 @@ def renew_ticket_prices(_id):
 
     return jsonify({"Success": "Flight prices updated successfully."}), 200
 ```
-**1. Ελέγχει αν ένας διαχειριστής είναι συνδεδεμένος, ελέγχοντας το 'user_code' στην session. Εάν όχι, επιστρέφει μήνυμα λάθους.  
-2. Ελέγχει αν ο συνδεδεμένος χρήστης είναι διαχειριστής, ελέγχοντας το email του στη λίστα των emails των διαχειριστών. Εάν όχι, επιστρέφει μήνυμα λάθους.  
-3. Προσπαθεί να αναλύσει τα δεδομένα του αιτήματος ως JSON. Εάν αποτύχει, επιστρέφει μήνυμα λάθους.  
-4. Εξάγει τις νέες τιμές για τα εισιτήρια από τα δεδομένα του αιτήματος.  
-5. Ελέγχει αν υπάρχει πτήση με το '_id' που έχει δοθεί. Εάν όχι, επιστρέφει μήνυμα λάθους.  
-6. Αν υπάρχει η πτήση, ενημερώνει τις τιμές των εισιτηρίων της στη βάση δεδομένων.  
-7. Επιστρέφει μήνυμα επιτυχίας στον διαχειριστή.**
+**1. Checks if an administrator is logged in by checking the 'user_code' in the session. If not, it returns an error message.
+2. Checks if the logged in user is an administrator by checking their email in the list of administrators' emails. If not, it returns an error message.
+3. Tries to parse the request data as JSON. If it fails, it returns an error message.
+4. Extracts the new ticket prices from the request data.
+5. Checks if there is a flight with the given '_id'. If not, it returns an error message.
+6. If the flight exists, it updates its ticket prices in the database.
+7. Returns a success message to the administrator.**
 
 
-**Σωστή σύνταξη json input:**
+**Correct json input syntax:**
 ```json
 {
   "business_class_tickets_price": " ",
@@ -956,12 +956,12 @@ def delete_flight(_id):
 
     return jsonify({"Success": "Flight deleted successfully."}), 204
 ```
-**1. Ελέγχει αν υπάρχει ήδη συνδεδεμένος διαχειριστής, ελέγχοντας την ύπαρξη του 'user_code' στην session. Εάν όχι, επιστρέφει μήνυμα λάθους.  
-2. Ελέγχει αν το email του συνδεδεμένου χρήστη υπάρχει στη λίστα των emails των διαχειριστών. Αν όχι, επιστρέφει μήνυμα λάθους.  
-3. Αναζητά την πτήση με το δεδομένο '_id' στη βάση δεδομένων. Αν δεν βρεθεί, επιστρέφει μήνυμα λάθους.  
-4. Ελέγχει αν υπάρχουν κρατήσεις για την πτήση. Αν ναι, επιστρέφει μήνυμα λάθους και δεν διαγράφει την πτήση.   
-5. Αν δεν υπάρχουν κρατήσεις, διαγράφει την πτήση από τη βάση δεδομένων.  
-6. Επιστρέφει μήνυμα επιτυχίας.**
+**1. Checks if an administrator is already logged in by checking for the existence of 'user_code' in the session. If not, it returns an error message.
+2. Checks if the logged in user's email is in the list of administrators' emails. If not, it returns an error message.
+3. Searches for the flight with the given '_id' in the database. If not found, it returns an error message.
+4. Checks if there are reservations for the flight. If so, it returns an error message and does not delete the flight.
+5. If there are no reservations, it deletes the flight from the database.
+6. Returns a success message.**
 
 
 
@@ -1002,13 +1002,13 @@ def admin_search_flights():
     results = flights.find(search_criteria)
     return jsonify([flight for flight in results]), 200
 ```
-**1. Ελέγχει αν υπάρχει συνδεδεμένος διαχειριστής.  
-2. Ελέγχει αν ο συνδεδεμένος χρήστης είναι διαχειριστής.  
-3. Αναζητά πτήσεις με βάση τα δεδομένα του αιτήματος (αιρμπόρτικος σταθμός προέλευσης, αεροδρόμιο προορισμού, ημερομηνία πτήσης).  
-4. Επιστρέφει τις πτήσεις που ταιριάζουν στα κριτήρια.**
+**1. Checks if an administrator is logged on.
+2. Checks if the logged in user is an administrator.
+3. Searches for flights based on the request data (origin airport, destination airport, flight date).
+4. Returns flights matching the criteria.**
 
 
-**Σωστή σύνταξη json input (προαιρετική):**
+**Correct json input syntax (optional):**
 ```json
 {
     "airport_of_origin": " "
@@ -1085,10 +1085,10 @@ def flight_details(_id):
     return jsonify({"Flight Information": flight_info, "Bookings": booking_details}), 200
 
 ```
-**1. Ελέγχει αν υπάρχει συνδεδεμένος διαχειριστής.  
-2. Ελέγχει αν ο συνδεδεμένος χρήστης είναι διαχειριστής.  
-3. Αναζητά την πτήση με το δεδομένο '_id' στη βάση δεδομένων. Αν δεν βρεθεί, επιστρέφει μήνυμα λάθους.  
-4. Αναζητά τις κρατήσεις για την πτήση και επιστρέφει λεπτομέρειες για την πτήση και τις κρατήσεις.**
+**1. Checks if an administrator is logged on.
+2. Checks if the logged in user is an administrator.
+3. Searches for the flight with the given '_id' in the database. If not found, it returns an error message.
+4. Searches for flight reservations and returns flight and reservation details.**
 
 
 
@@ -1100,11 +1100,11 @@ RUN apt-get install -y python3 python3-pip
 RUN pip3 install flask pymongo
 RUN mkdir /app
 RUN mkdir -p /app/data
-COPY e20081_Airline_Service.py /app/e20081_Airline_Service.py
+COPY Airline_Service.py /app/Airline_Service.py
 ADD data /app/data
 EXPOSE 5000
 WORKDIR /app
-ENTRYPOINT [ "python3","-u", "e20081_Airline_Service.py" ]
+ENTRYPOINT [ "python3","-u", "Airline_Service.py" ]
 ```
 ## docker-compose.yml
 ```bash
@@ -1132,13 +1132,13 @@ services:
 ```
 ## How To Set Up
 
-**Βήμα 1:**   
-Στον Ίδιο φάκελο έχουμε τα εξής:
+**Step 1:**
+In the same folder we have the following:
 | Airline_Service.py | Dockerfile | docker-compose.yml | data (κενός φάκελος) |
 | :----------------- | :--------- | :----------------- | :------------------- |
 
-**Βήμα 2:**  
-Πηγαίνουμε στο σωστό PATH του φακέλου με τα αρχεία και μετά εκτελούμε:  
+**Step 2:**
+We go to the correct PATH of the folder with the files and then run:  
 ```bash
 $ sudo docker-compose build
 ```
@@ -1146,44 +1146,44 @@ $ sudo docker-compose build
 $ sudo docker-compose up
 ```
 
-**Βήμα 3:**   
-Αφού ξεκινήσουν και τα 2 containers, στέλνουμε requests μέσω POSTMAN για να χρησιμοποιήσουμε την υπηρεσία.  
-Στο POSTMAN στέλνουμε τα requests στην διεύθυνση:  **http://0.0.0.0:5000**
+**Step 3:**
+After both containers are started, we send requests via POSTMAN to use the service.
+In POSTMAN we send the requests to the address: **http://0.0.0.0:5000**
 
 
-**Highly Reccomended:** Εκτέλεση των παρακάτω εντολών 
+**Highly Reccomended:** Run the following commands 
 ```bash
 $ sudo iptables -A INPUT -p tcp --dport 27017 -j ACCEPT
 ```
-Αυτή η εντολή χρησιμοποιεί το iptables, ένα πρόγραμμα χρήστη που επιτρέπει σε έναν διαχειριστή συστήματος να ρυθμίσει τους κανόνες φίλτρων πακέτων IP του τείχους προστασίας του πυρήνα του Linux.
+This command uses iptables, a user program that allows a system administrator to configure the IP packet filter rules of the Linux kernel firewall.
 
-**-A INPUT προσθέτει έναν κανόνα στην αλυσίδα INPUT. Η αλυσίδα INPUT χρησιμοποιείται για τον έλεγχο της συμπεριφοράς για τις εισερχόμενες συνδέσεις.  
--p tcp καθορίζει ότι ο κανόνας εφαρμόζεται στην κίνηση TCP.  
---dport 27017 καθορίζει τη θύρα προορισμού, που σε αυτή την περίπτωση είναι 27017.  
--j ACCEPT σημαίνει ότι αν το πακέτο ταιριάζει με τον κανόνα, πρέπει να γίνει αποδεκτό και να μην ελεγχθεί έναντι άλλων κανόνων στην αλυσίδα.**
+**-A INPUT adds a rule to the INPUT chain. The INPUT chain is used to control the behavior for incoming connections.
+-p tcp specifies that the rule is applied to TCP traffic.
+--dport 27017 specifies the destination port, which in this case is 27017.
+-j ACCEPT means that if the packet matches the rule, it should be accepted and not checked against other rules in the chain.**
 
 ```bash
 $ sudo ufw allow 27017
 ```
-Αυτή η εντολή χρησιμοποιεί το ufw (Uncomplicated Firewall), μια διεπαφή στο iptables που στοχεύει στην απλοποίηση της διαδικασίας ρύθμισης ενός τείχους προστασίας.  
-Προσθέτει έναν κανόνα που επιτρέπει την εισερχόμενη κίνηση στη θύρα 27017.
+This command uses ufw (Uncomplicated Firewall), an interface to iptables that aims to simplify the process of setting up a firewall.
+Adds a rule that allows inbound traffic on port 27017.
 
-**Σημείωση**  
-Έτρεξα το ``sudo docker-compose build`` και το ``sudo docker-compose up`` έχοντας τα αρχεία σε έναν φάκελο "InfoSys" στην επιφάνεια εργασίας στο VM μου, και συμπίεσα τον καινούργιο φάκελο "InfoSys" στο **ALREADY_BUILT.zip** για να δείτε τι ακριβώς παράγεται. Στο .zip είναι τα αρχεία που είχα μαζί με αυτά που δημιουργήθηκαν μετά την επιτυχή λειτουργία του docker-compose και την δημιουργία του ζευγαριού των containers.
+**Note**
+I ran ``sudo docker-compose build'' and ``sudo docker-compose up'' with the files in an ``InfoSys'' folder on the desktop in my VM, and zipped the new ``InfoSys'' folder to **ALREADY_BUILT .zip** to see exactly what is produced. In the .zip are the files I had together with the ones created after successfully running docker-compose and creating the pair of containers.
 
 ## Run Locally
-Για την εκτέλεση του κώδικα τοπικά στον υπολογιστή σας χρειάζονται τα παρακάτω βήματα:   
+To run the code locally on your computer you need the following steps:   
 
-**1. Αλλαγή της γραμμής 7 από:**  
+**1. Change line 7 from:**
 ```python
 client = MongoClient('mongodb://mongodb:27017/')
 ```
-**σε**  
+**to**  
 ```python
 client = MongoClient('localhost:27017')
 ```
 
-**2. Δημιουργία ενός container μέσω των εντολών:**  
+**2. Create a container using the commands:** 
 ```bash
 docker pull mongo
 ```
@@ -1191,9 +1191,9 @@ docker pull mongo
 docker run -d -p 27017:27017 --name mongodb mongo
 ```
 
-**3. Εκτέλεση του Airline_Services.py**  
+**3. Run Airline_Services.py** 
 
-**4. Αποστολή σωστών Requests μέσω POSTMAN στην διεύθυνση: http://0.0.0.0:5000**
+**4. Send correct Requests via POSTMAN to the address: http://0.0.0.0:5000**
 ## Authors
 
 - [@Vaioskn](https://github.com/Vaioskn)
