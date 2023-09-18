@@ -4,95 +4,95 @@
 A brief description of how this service works
 
 # DESCRIPTION OF PROJECT
-In this service there are two categories of users: (i) administrators, and (ii) ordinary users. Before performing the functions described below, ordinary users of the service must register in the system. The registration allows the introduction of new users in the system who will be classified in the "Simple User" category. The administrator is a user who already exists in the system.
-To register a simple user in the system, the following information is required:
-● Username
-● Username
-● Email
-● Login code
-● Date of birth
-● Country of origin
-● Passport Number
-Note: A new user can register in the system if and only if there is no other user with the same email, and the username is not used by another user. A simple user can perform the following functions:
+In this service there are two categories of users: (i) administrators, and (ii) ordinary users. Before performing the functions described below, ordinary users of the service must register in the system. The registration allows the introduction of new users in the system who will be classified in the "Simple User" category. The administrator is a user who already exists in the system.  
+To register a simple user in the system, the following information is required:  
+● Username  
+● Username  
+● Email  
+● Login code  
+● Date of birth  
+● Country of origin  
+● Passport Number  
+Note: A new user can register in the system if and only if there is no other user with the same email, and the username is not used by another user. A simple user can perform the following functions:  
 
 ● Login to the system: The user enters his email and password and if the information is valid, he is successfully logged into the service. Otherwise, an appropriate message appears prompting the user to enter his data again. Only if a user has successfully logged in can he perform the following functions! Also, an ordinary user can only access the pages that concern ordinary users and NOT those that concern administrators of the service. If a user attempts to enter a page they do not have access to, an appropriate message is being displayed (including the relevant HTTP response code).
 
 ● Logout from the system: After the user exits, he does not have access to the functions described below.
 
-● Search flights: A user can search the flights available in the system. The search can be made based on the following information:
-○ Airport of origin and airport of final destination, or
-○ Airport of origin, airport of final destination and date of operation, or
-○ By date, or
-○ Show all available flights
-A list of available flights, their unique codes (_id), date of departure, origin airport and final destination airport is displayed.
+● Search flights: A user can search the flights available in the system. The search can be made based on the following information:  
+○ Airport of origin and airport of final destination, or  
+○ Airport of origin, airport of final destination and date of operation, or  
+○ By date, or  
+○ Show all available flights  
+A list of available flights, their unique codes (_id), date of departure, origin airport and final destination airport is displayed.  
 
 ● Show flight details (based on a unique code): For the flight, the date of departure, the airport of origin and the airport of final destination, the available tickets (economy and business), as well as the cost of the tickets for each of the two categories (economy and business) are being displayed.
 
-● Book a ticket (using the unique code of the flight): The user provides the information described below and books a ticket for this flight:
-○ Name
-○ Surname
-○ Passport number
-○ Date of Birth
-○ Email
-○ If the ticket is for business or economy class
+● Book a ticket (using the unique code of the flight): The user provides the information described below and books a ticket for this flight:  
+○ Name  
+○ Surname  
+○ Passport number  
+○ Date of Birth  
+○ Email  
+○ If the ticket is for business or economy class  
 
 ● Show bookings: The bookings made by the specific user are being displayed.
 
-● Display reservation details (based on unique reservation code): The details provided by the user for booking the ticket are being displayed, namely:
-○ Airport of origin
-○ Airport of final destination
-○ Date of the flight
-○ First and last name of person for whom the reservation has been made
-○ Passport number of person for whom the reservation has been made
-○ Date of birth of person booked
-○ Email of person for whom the reservation has been made
-○ If the ticket is for business or economy class
+● Display reservation details (based on unique reservation code): The details provided by the user for booking the ticket are being displayed, namely:  
+○ Airport of origin  
+○ Airport of final destination  
+○ Date of the flight  
+○ First and last name of person for whom the reservation has been made  
+○ Passport number of person for whom the reservation has been made  
+○ Date of birth of person booked  
+○ Email of person for whom the reservation has been made  
+○ If the ticket is for business or economy class  
 
 ● Cancellation of reservation (based on unique reservation code): The reservation is canceled and now the number of available tickets for the specific flight is renewed.
 
 ● Deletion of his account from the service: After deleting his account, the user can no longer access the service and his information. Reservations made by this user are not affected.
 
-An administrator can perform the following functions:
+An administrator can perform the following functions:  
 ● Login to the system: The administrator enters his email, and his password and if the information is valid, he is successfully logged into the service. Otherwise, an appropriate message is being displayed prompting the administrator to enter the information again. Only if an administrator has successfully logged into the system can he perform the following functions!
 
 ● Logout: Once logged out, the administrator does not have access to the functions described below.
 
-● Create a flight: The administrator can create a new flight by providing the following information:
-○ Airport of origin
-○ Airport of final destination
-○ Date of flight
-○ Tickets available and costs
-■ For business class
-■ For economy class
+● Create a flight: The administrator can create a new flight by providing the following information:  
+○ Airport of origin  
+○ Airport of final destination  
+○ Date of flight  
+○ Tickets available and costs  
+■ For business class  
+■ For economy class  
 
 ● Update flight ticket prices: The administrator can change the cost of tickets for the two categories (economy and business).
 
 ● Flight deletion (based on unique flight code): The administrator can delete a flight only if there are no reservations for that flight.
 
-● Search flights: An administrator can search the flights available in the system. The search can be made based on the following information:
-○ Airport of origin and airport of final destination, or
-○ Airport of origin, airport of final destination and date of operation, or
-○ By date, or
-○ Show all available flights
-A list of available flights, their unique codes (_id), date of departure, origin and final destination is displayed.
+● Search flights: An administrator can search the flights available in the system. The search can be made based on the following information:  
+○ Airport of origin and airport of final destination, or  
+○ Airport of origin, airport of final destination and date of operation, or  
+○ By date, or  
+○ Show all available flights  
+A list of available flights, their unique codes (_id), date of departure, origin and final destination is displayed.  
 
-● Display flight details (based on unique flight code): The following details for the specific flight are displayed:
-○ Airport of origin
-○ Airport of final destination
-○ Total number of tickets
-○ Total number of tickets per class (economy and business)
-○ Ticket cost per category
-○ Tickets available
-○ Available tickets per class (economy and business)
-○ For each reservation made on this flight, the first and last name of the person for whom the reservation has been made and the class of the seat reserved.
+● Display flight details (based on unique flight code): The following details for the specific flight are displayed:  
+○ Airport of origin  
+○ Airport of final destination  
+○ Total number of tickets  
+○ Total number of tickets per class (economy and business)  
+○ Ticket cost per category  
+○ Tickets available  
+○ Available tickets per class (economy and business)  
+○ For each reservation made on this flight, the first and last name of the person for whom the reservation has been made and the class of the seat reserved.  
 
 
 The web service has been implemented using Python and the Microframework Flask, which provides the necessary endpoints to its users, so that they can perform the aforementioned functions. The web service that has been implemented is connected to a MongoDB container. Inside, exists the DigitalAirlines database, which stores the related collections, the users, the available flights and the reservations made. The web service has been containerized, while the exact steps to be followed by Docker are described in the Dockerfile to create the image. The docker-compose.yml file has also been created. It connects the two containers (ie the web service and MongoDB) to run together. The database container has a volume in a folder on the host called "data", so that in the event that the container is deleted, data loss is avoided.
 
-Also, the following have been created:
-1. System data flow diagram
-2. Table of risks for the implementation of the system
-3. Proposed Gantt Chart for Information System Implementation Management
+Also, the following have been created:  
+1. System data flow diagram  
+2. Table of risks for the implementation of the system  
+3. Proposed Gantt Chart for Information System Implementation Management  
 
 
 
@@ -145,16 +145,16 @@ else:
 
 users.delete_one({"User_code": "THIS_IS_TEMP_CODE"})
 ```
-**1. Imports the necessary models from the flask and pymongo packages.
-2. Connects to MongoDB database on port 27017.
-3. Gets the "DigitalAirlines" database from the MongoDB instance.
-4. Gets the collections from the "DigitalAirlines" database.
-5. Creates a list of admin emails, which are banned for normal user registration.
-6. Starts a Flask application and sets a session secret.
-7. Temporarily adds a user to create the "users" collection. If the collection does not exist, this will result in an error and crash, so it creates the collection first.
-8. Creates the system administrator.
-9. If the administrator already exists, it displays a message.
-10. If the administrator does not exist, then it adds it to the database.
+**1. Imports the necessary models from the flask and pymongo packages.  
+2. Connects to MongoDB database on port 27017.  
+3. Gets the "DigitalAirlines" database from the MongoDB instance.  
+4. Gets the collections from the "DigitalAirlines" database.  
+5. Creates a list of admin emails, which are banned for normal user registration.  
+6. Starts a Flask application and sets a session secret.  
+7. Temporarily adds a user to create the "users" collection. If the collection does not exist, this will result in an error and crash, so it creates the collection first.  
+8. Creates the system administrator.  
+9. If the administrator already exists, it displays a message.  
+10. If the administrator does not exist, then it adds it to the database.  
 11. Deletes the temporary user, because we don't want unnecessary items in the "users" collection.**
 
 ## Endpoints Creation
@@ -213,16 +213,16 @@ def register():
     print(success_message)
     return jsonify({"Success": "User registered successfully."}), 201
 ```
-**1. At first, on the '/register' endpoint, it receives an HTTP POST request with the new user's data in JSON format.
-2. It tries to parse this data and if it encounters an error, it returns an error message.
-3. Retrieves the user's information from the request data and, if any information is missing, returns an error message.
-4. Checks if the user's email exists in the list of administrators' emails and returns an error message if so.
-5. It then checks if the email or username already exists in the database and returns an error message if so.
-6. Computes a unique user code, creates a dictionary for the new user, and inserts it into the database.
+**1. At first, on the '/register' endpoint, it receives an HTTP POST request with the new user's data in JSON format.  
+2. It tries to parse this data and if it encounters an error, it returns an error message.  
+3. Retrieves the user's information from the request data and, if any information is missing, returns an error message.  
+4. Checks if the user's email exists in the list of administrators' emails and returns an error message if so.  
+5. It then checks if the email or username already exists in the database and returns an error message if so.  
+6. Computes a unique user code, creates a dictionary for the new user, and inserts it into the database.  
 7. If everything goes well, it returns a success message.**
 
 
-**Correct json input syntax:**
+**Correct json input syntax:**  
 ```json
 {
     "user_name": " ",
@@ -273,14 +273,14 @@ def login():
             print(f"Error: {email} does not exist. Please register first!")
             return jsonify({"Error": f"{email} does not exist. Please register first!"}), 404
 ```
-**1. Checks if there is already a logged in user. If so, it returns an error message.
-2. If not, it tries to parse the HTTP POST request data containing the user's email and login code.
-3. If the user exists in the database and the password is correct, it creates a new session for the user and returns a success message.
-4. If the password is wrong but the email exists, it returns an error message.
-5. If the email does not exist, it returns another error message.**
+**1. Checks if there is already a logged in user. If so, it returns an error message.  
+2. If not, it tries to parse the HTTP POST request data containing the user's email and login code.  
+3. If the user exists in the database and the password is correct, it creates a new session for the user and returns a success message.  
+4. If the password is wrong but the email exists, it returns an error message.  
+5. If the email does not exist, it returns another error message.**  
 
 
-**Correct json input syntax:**
+**Correct json input syntax:**  
 ```json
 {
     "email": " ",
@@ -313,11 +313,11 @@ def logout():
         print(f"Error: The user does not exist in the database.")
         return jsonify({"Error": "The user does not exist in the database."}), 404
 ```
-**1. Checks if there is a logged in user. If not, it returns an error message.
-2. If so, retrieves the user's password from the session and checks if the user is an administrator.
-3. If so, it returns an error message.
-4. If not, it removes the user's password from the session, thus logging the user out.
-5. If the user's details existed in the database, it returns a success message. If not, it returns an error message.**
+**1. Checks if there is a logged in user. If not, it returns an error message.  
+2. If so, retrieves the user's password from the session and checks if the user is an administrator.  
+3. If so, it returns an error message.  
+4. If not, it removes the user's password from the session, thus logging the user out.  
+5. If the user's details existed in the database, it returns a success message. If not, it returns an error message.**  
 
 
 
@@ -350,14 +350,14 @@ def search_flights():
     results = flights.find(search_criteria)
     return jsonify([flight for flight in results]), 200
 ```
-**1. Checks if an administrator is logged on. If not, it returns an error message.
-2. If so, it tries to parse the request data as JSON.
-3. If there is no request data, it returns all flights in MongoDB's "Flights" collection.
-4. If request data exists, retrieves the search criteria from the data and creates a search query.
-5. Uses the search query to find matching flights in MongoDB's "Flights" collection and returns those flights as a JSON array.**
+**1. Checks if an administrator is logged on. If not, it returns an error message.  
+2. If so, it tries to parse the request data as JSON.  
+3. If there is no request data, it returns all flights in MongoDB's "Flights" collection.  
+4. If request data exists, retrieves the search criteria from the data and creates a search query.  
+5. Uses the search query to find matching flights in MongoDB's "Flights" collection and returns those flights as a JSON array.**  
 
 
-**Correct json input syntax (optional):**
+**Correct json input syntax (optional):**  
 ```json
 {
     "airport_of_origin": " "
@@ -400,11 +400,10 @@ def display_flight_details(_id):
 
     return jsonify(flight_details), 200
 ```
-**1. Checks if a user is logged in. If not, it returns an error message.
-2. If so, it gets the flight details from the MongoDB "Flights" collection using the given flight ID.
-3. If no flight is found with the given ID, it returns an error message.
-4. Creates a JSON object representing the flight details and returns it.**
-
+**1. Checks if a user is logged in. If not, it returns an error message.  
+2. If so, it gets the flight details from the MongoDB "Flights" collection using the given flight ID.  
+3. If no flight is found with the given ID, it returns an error message.  
+4. Creates a JSON object representing the flight details and returns it.**  
 
 
 ## /book_ticket/<_id>
@@ -482,19 +481,19 @@ def book_ticket(_id):
     print(success_message)
     return jsonify({"Success": "Ticket booked successfully!"}), 201
 ```
-**1. Checks if a user is logged in. If not, it returns an error message.
-2. If so, it gets the user details from MongoDB's "Users" collection.
-3. It tries to parse the request data as JSON. If these are not JSON, it returns an error message.
-4. Retrieves the booking details from the application data. If any detail is missing, it returns an error message.
-5. Verifies that the booking details match the user details. If not, it returns an error message.
-6. Gets the flight details from the MongoDB "Flights" collection using the given flight ID.
-7. Checks if there are tickets available for the category chosen by the user (business or economy). If there are, it decrements the number of available tickets by 1. If there are no tickets available, it returns an error message.
-8. Creates a unique reservation code and a new JSON object for the reservation.
-9. Inserts the new booking into MongoDB's "Bookings" collection.
-10. Returns a success message.**
+**1. Checks if a user is logged in. If not, it returns an error message.  
+2. If so, it gets the user details from MongoDB's "Users" collection.  
+3. It tries to parse the request data as JSON. If these are not JSON, it returns an error message.  
+4. Retrieves the booking details from the application data. If any detail is missing, it returns an error message.  
+5. Verifies that the booking details match the user details. If not, it returns an error message.  
+6. Gets the flight details from the MongoDB "Flights" collection using the given flight ID.  
+7. Checks if there are tickets available for the category chosen by the user (business or economy). If there are, it decrements the number of available tickets by 1. If there are no tickets available, it returns an error message.  
+8. Creates a unique reservation code and a new JSON object for the reservation.  
+9. Inserts the new booking into MongoDB's "Bookings" collection.  
+10. Returns a success message.**  
 
 
-**Correct json input syntax:**
+**Correct json input syntax:**  
 ```json
 {
     "user_name": " ",
@@ -548,16 +547,16 @@ def show_bookings():
 
     return jsonify({"Bookings": bookings_data}), 200
 ```
-**1. Checks if a user is logged in. If not, it returns an error message.
-2. If so, it gets the user's password from the session variable.
-3. Performs a find operation on MongoDB's "bookings" collection to get all bookings where 'user_code' matches the logged in user's code.
-4. If no reservations were found for the user, it returns a JSON message indicating that no reservations were found.
-5. If reservations are found, an empty list is initialized to contain the reservation data.
-6. Gets each booking's details and flight details from the 'flights' collection using the flight ID from the booking.
-7. Combines reservation data and flight data into a single dictionary.
-8. Adds the single reservation and flight data dictionary to the reservation data list.
-9. Returns the list of booking data to the client in JSON format.**
-
+**1. Checks if a user is logged in. If not, it returns an error message.  
+2. If so, it gets the user's password from the session variable.  
+3. Performs a find operation on MongoDB's "bookings" collection to get all bookings where 'user_code' matches the logged in user's code.  
+4. If no reservations were found for the user, it returns a JSON message indicating that no reservations were found.  
+5. If reservations are found, an empty list is initialized to contain the reservation data.  
+6. Gets each booking's details and flight details from the 'flights' collection using the flight ID from the booking.  
+7. Combines reservation data and flight data into a single dictionary.  
+8. Adds the single reservation and flight data dictionary to the reservation data list.  
+9. Returns the list of booking data to the client in JSON format.**  
+ 
 
 
 ## /show_booking_details/<booking_code>
@@ -605,13 +604,13 @@ def show_booking_details(booking_code):
     }
     return jsonify({"Booking": data}), 200
 ```
-**1. Checks if a user is logged in. If not, it returns an error message.
-2. If so, it gets the user's password from the session variable.
-3. Performs a find operation on MongoDB's "bookings" collection to find the booking with the given code.
-4. If the reservation is not found, it returns an error message.
-5. If the reservation is found, it checks if it belongs to the logged in user. If not, it returns an error message.
-6. If the reservation belongs to the user, it finds the flight details from the 'flights' collection and joins them with the reservation details in a dictionary.
-7. Finally, it returns the dictionary to the user in JSON format.**
+**1. Checks if a user is logged in. If not, it returns an error message.  
+2. If so, it gets the user's password from the session variable.  
+3. Performs a find operation on MongoDB's "bookings" collection to find the booking with the given code.  
+4. If the reservation is not found, it returns an error message.  
+5. If the reservation is found, it checks if it belongs to the logged in user. If not, it returns an error message.  
+6. If the reservation belongs to the user, it finds the flight details from the 'flights' collection and joins them with the reservation details in a dictionary.  
+7. Finally, it returns the dictionary to the user in JSON format.**  
 
 
 
@@ -652,10 +651,10 @@ def cancel_flight(booking_code):
 
     return jsonify({"Success": "Booking cancelled successfully."}), 202
 ```
-**1. It follows a similar process to the '/show_booking_details/<booking_code>' endpoint.
-2. If the reservation is found and belongs to the user, it increases the number of available seats on the flight according to the ticket category of the reservation (economy or business).
-3. It then deletes the booking from the 'bookings' collection.
-4. Finally, it returns a success message to the user.**
+**1. It follows a similar process to the '/show_booking_details/<booking_code>' endpoint.  
+2. If the reservation is found and belongs to the user, it increases the number of available seats on the flight according to the ticket category of the reservation (economy or business).  
+3. It then deletes the booking from the 'bookings' collection.  
+4. Finally, it returns a success message to the user.**  
 
 
 
@@ -679,10 +678,10 @@ def delete_account():
 
     return jsonify({"Success": "Account deleted successfully."}), 204
 ```
-**1. Checks if a user is logged in. If not, it returns an error message.
-2. If so, it finds the user in the 'users' collection and deletes it.
-3. Removes the user's password from the session variable, logging the user out.
-4. Finally, it returns a success message to the user.**
+**1. Checks if a user is logged in. If not, it returns an error message.  
+2. If so, it finds the user in the 'users' collection and deletes it.  
+3. Removes the user's password from the session variable, logging the user out.  
+4. Finally, it returns a success message to the user.**  
 
 
 
@@ -723,16 +722,16 @@ def admin_login():
             print(f"Error: {email} does not exist. Wrong Admin Credentials!")
             return jsonify({"Error": f"{email} does not exist. Wrong Admin Credentials!"}), 404
 ```
-**1. Checks if a user is already logged in to the session. If so, it displays an error message and returns a 403 error.
-2. It tries to parse the request data as JSON. If it fails, it displays an error message and returns a 400 error.
-3. Extracts the email and login code from the application data. If any of these are missing, it returns an error message and a 400 error.
-4. Checks if the email does not belong to the administrator. If so, it displays an error message and returns a 403 error.
-5. Checks if the user exists with the given email and password. If so, it connects the user and creates a new session.
-6. If the input code is incorrect but the email exists in the database, it returns an error.
-7. If the email does not exist in the database, it returns an error.**
+**1. Checks if a user is already logged in to the session. If so, it displays an error message and returns a 403 error.  
+2. It tries to parse the request data as JSON. If it fails, it displays an error message and returns a 400 error.  
+3. Extracts the email and login code from the application data. If any of these are missing, it returns an error message and a 400 error.  
+4. Checks if the email does not belong to the administrator. If so, it displays an error message and returns a 403 error.  
+5. Checks if the user exists with the given email and password. If so, it connects the user and creates a new session.  
+6. If the input code is incorrect but the email exists in the database, it returns an error.  
+7. If the email does not exist in the database, it returns an error.**  
 
 
-**Correct json input syntax:**
+**Correct json input syntax:**  
 ```json
 {
     "email": "admin1@example.com",
@@ -762,14 +761,14 @@ def admin_logout():
     print(f"Success! Administrator {user['user_name']} {user['user_surname']} logged-out")
     return jsonify({"Success": f"Administrator {user['user_name']} {user['user_surname']} logged-out"}), 200
 ```
-**1. The admin_logout() function reacts to an HTTP POST request to the path /admin/logout.
-2. First, it checks if user_code exists in the current session. If not, no administrator is logged in, and a 401 error is returned.
-3. If user_code exists, retrieve it from the session.
-4. It then looks up the user from the users collection based on user_code.
-5. Checks if the user is an admin by checking if the user's email is in the admin_emails list.
-6. If the email is not in the list, the user is not an administrator, and a 403 error is returned.
-7. If the user is an administrator, then it is "logged out", removing the user_code from the session.
-8. Finally, a success message is returned indicating that the administrator has successfully logged out.**
+**1. The admin_logout() function reacts to an HTTP POST request to the path /admin/logout.  
+2. First, it checks if user_code exists in the current session. If not, no administrator is logged in, and a 401 error is returned.  
+3. If user_code exists, retrieve it from the session.  
+4. It then looks up the user from the users collection based on user_code.  
+5. Checks if the user is an admin by checking if the user's email is in the admin_emails list.  
+6. If the email is not in the list, the user is not an administrator, and a 403 error is returned.  
+7. If the user is an administrator, then it is "logged out", removing the user_code from the session.  
+8. Finally, a success message is returned indicating that the administrator has successfully logged out.**  
 
 
 
@@ -829,19 +828,19 @@ def create_flight():
     print(success_message)
     return jsonify({"Success": "Flight Added Successfully."}), 201
 ```
-**1. The create_flight() function responds to an HTTP POST request to the path /admin/create_flight.
-2. It first checks if user_code exists in the session, i.e. if a user is logged in. If user_code does not exist, it returns a 401 error, stating that no administrator is currently logged in.
-3. If user_code exists, retrieves it from the session and looks for the user in the users collection.
-4. Checks if the logged in user is an admin, i.e. if the user's email is in the admin_emails list. If not found, it returns a 403 error.
-5. It then tries to parse the request data as JSON. If the data is not formatted correctly, it returns a 400 error.
-6. If the request data is properly formatted as JSON, it tries to retrieve the necessary fields. If a field is missing, it returns a 400 error.
-7. Counts the flights in the flights collection and uses that number to generate a unique ID for the new flight.
-8. Creates a new flight document using the data retrieved from the request.
-9. Inserts the new flight into the flights collection.
-10. Returns a success message indicating that the flight has been created successfully.**
+**1. The create_flight() function responds to an HTTP POST request to the path /admin/create_flight.  
+2. It first checks if user_code exists in the session, i.e. if a user is logged in. If user_code does not exist, it returns a 401 error, stating that no administrator is currently logged in.  
+3. If user_code exists, retrieves it from the session and looks for the user in the users collection.  
+4. Checks if the logged in user is an admin, i.e. if the user's email is in the admin_emails list. If not found, it returns a 403 error.  
+5. It then tries to parse the request data as JSON. If the data is not formatted correctly, it returns a 400 error.  
+6. If the request data is properly formatted as JSON, it tries to retrieve the necessary fields. If a field is missing, it returns a 400 error.  
+7. Counts the flights in the flights collection and uses that number to generate a unique ID for the new flight.  
+8. Creates a new flight document using the data retrieved from the request.  
+9. Inserts the new flight into the flights collection.  
+10. Returns a success message indicating that the flight has been created successfully.**  
 
 
-**Correct json input syntax:**
+**Correct json input syntax:**  
 ```json
 {
   "airport_of_origin": " ",
@@ -903,16 +902,16 @@ def renew_ticket_prices(_id):
 
     return jsonify({"Success": "Flight prices updated successfully."}), 200
 ```
-**1. Checks if an administrator is logged in by checking the 'user_code' in the session. If not, it returns an error message.
-2. Checks if the logged in user is an administrator by checking their email in the list of administrators' emails. If not, it returns an error message.
-3. Tries to parse the request data as JSON. If it fails, it returns an error message.
-4. Extracts the new ticket prices from the request data.
-5. Checks if there is a flight with the given '_id'. If not, it returns an error message.
-6. If the flight exists, it updates its ticket prices in the database.
-7. Returns a success message to the administrator.**
+**1. Checks if an administrator is logged in by checking the 'user_code' in the session. If not, it returns an error message.  
+2. Checks if the logged in user is an administrator by checking their email in the list of administrators' emails. If not, it returns an error message.  
+3. Tries to parse the request data as JSON. If it fails, it returns an error message.  
+4. Extracts the new ticket prices from the request data.  
+5. Checks if there is a flight with the given '_id'. If not, it returns an error message.  
+6. If the flight exists, it updates its ticket prices in the database.  
+7. Returns a success message to the administrator.**  
 
 
-**Correct json input syntax:**
+**Correct json input syntax:**  
 ```json
 {
   "business_class_tickets_price": " ",
@@ -956,12 +955,12 @@ def delete_flight(_id):
 
     return jsonify({"Success": "Flight deleted successfully."}), 204
 ```
-**1. Checks if an administrator is already logged in by checking for the existence of 'user_code' in the session. If not, it returns an error message.
-2. Checks if the logged in user's email is in the list of administrators' emails. If not, it returns an error message.
-3. Searches for the flight with the given '_id' in the database. If not found, it returns an error message.
-4. Checks if there are reservations for the flight. If so, it returns an error message and does not delete the flight.
-5. If there are no reservations, it deletes the flight from the database.
-6. Returns a success message.**
+**1. Checks if an administrator is already logged in by checking for the existence of 'user_code' in the session. If not, it returns an error message.  
+2. Checks if the logged in user's email is in the list of administrators' emails. If not, it returns an error message.  
+3. Searches for the flight with the given '_id' in the database. If not found, it returns an error message.  
+4. Checks if there are reservations for the flight. If so, it returns an error message and does not delete the flight.  
+5. If there are no reservations, it deletes the flight from the database.  
+6. Returns a success message.**  
 
 
 
@@ -1002,13 +1001,13 @@ def admin_search_flights():
     results = flights.find(search_criteria)
     return jsonify([flight for flight in results]), 200
 ```
-**1. Checks if an administrator is logged on.
-2. Checks if the logged in user is an administrator.
-3. Searches for flights based on the request data (origin airport, destination airport, flight date).
-4. Returns flights matching the criteria.**
+**1. Checks if an administrator is logged on.  
+2. Checks if the logged in user is an administrator.  
+3. Searches for flights based on the request data (origin airport, destination airport, flight date).  
+4. Returns flights matching the criteria.**  
 
 
-**Correct json input syntax (optional):**
+**Correct json input syntax (optional):**  
 ```json
 {
     "airport_of_origin": " "
@@ -1085,10 +1084,10 @@ def flight_details(_id):
     return jsonify({"Flight Information": flight_info, "Bookings": booking_details}), 200
 
 ```
-**1. Checks if an administrator is logged on.
-2. Checks if the logged in user is an administrator.
-3. Searches for the flight with the given '_id' in the database. If not found, it returns an error message.
-4. Searches for flight reservations and returns flight and reservation details.**
+**1. Checks if an administrator is logged on.  
+2. Checks if the logged in user is an administrator.  
+3. Searches for the flight with the given '_id' in the database. If not found, it returns an error message.  
+4. Searches for flight reservations and returns flight and reservation details.**  
 
 
 
