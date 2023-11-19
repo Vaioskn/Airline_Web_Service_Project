@@ -1133,7 +1133,7 @@ services:
 
 **Step 1:**
 In the same folder we have the following:
-| Airline_Service.py | Dockerfile | docker-compose.yml | data (κενός φάκελος) |
+| Airline_Service.py | Dockerfile | docker-compose.yml | data (Empty Folder) |
 | :----------------- | :--------- | :----------------- | :------------------- |
 
 **Step 2:**
